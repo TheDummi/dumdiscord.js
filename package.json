@@ -1,0 +1,22 @@
+{
+  "name": "dumdiscord.js",
+  "version": "1.0.0",
+  "description": "A simple package that has discord functions based on the discord.js library.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dummi",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheDummi/dumdiscord.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TheDummi/dumdiscord.js/issues"
+  },
+  "homepage": "https://github.com/TheDummi/dumdiscord.js#readme",
+  "dependencies": {
+    "discord.js": "^13.8.1"
+  }
+}
