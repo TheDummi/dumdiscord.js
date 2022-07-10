@@ -120,7 +120,7 @@ function buttonPaginator(action, embeds, options = {}) {
                 }
 
                 if (a.customId == `${action.id}-fourth_option`) {
-                    embed = embeds[embeds.indexOf(embed) >= embeds.length ? embeds.indexOf(embed) + 1 : embeds.length - 1];
+                    embed = embeds[embeds.indexOf(embed) < embeds.length - 1 ? embeds.indexOf(embed) + 1 : embeds.length - 1];
                     a.update({ embeds: [embed] });
                 }
 
