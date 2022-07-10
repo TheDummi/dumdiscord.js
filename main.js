@@ -55,7 +55,7 @@ function selectMenuPaginator(action, embeds, options = {}) {
 
                 let chosen = a.values[0];
 
-                if (chosen === options.comp.options[0].value) embed = options.index;
+                if (chosen === options.row.components[0]?.options[0]?.value) embed = options.index;
 
                 else embed = embeds[values.indexOf(chosen)];
 
