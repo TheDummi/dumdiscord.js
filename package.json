@@ -1,6 +1,6 @@
 {
   "name": "dumdiscord.js",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A simple package that has discord functions based on the discord.js library.",
   "main": "main.js",
   "scripts": {

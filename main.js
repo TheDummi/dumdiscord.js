@@ -41,7 +41,7 @@ function selectMenuPaginator(action, embeds, options = {}) {
         options.row.addComponents(options.comp);
     }
 
-    if (!options.id) options.id = options.row.customId;
+    if (!options.id) options.id = options.row.components[0].customId;
 
     (async () => {
         let embed = options.index;
@@ -153,9 +153,41 @@ function reply(action, options = {}) {
 
     return action.replied || action.deferred ? action.editReply(options) : action.reply(options);
 }
+/**
+ * @param {Object} command - the interaction command
+ * @description get the full "name" "group" "sub" name of an interaction command.
+ * @returns  {Object} {commandName: commandDescription}
+ */
+function commandName(command) {
+    let commandInfo = {}
+
+    if (command.data.options.length > 0) {
+        command.data.options.map(option => {
+            if (!option.type) {
+                if (option.options.length > 0) {
+                    option.options.map(opt => {
+                        if (!opt.type) {
+                            commandInfo[command.data.name + " " + option.name + " " + opt.name] = opt.description;
+                        }
+
+                        else commandInfo[command.data.name + " " + option.name] = option.description;
+                    })
+                }
+                else commandInfo[command.data.name + " " + option.name] = option.description;
+            }
+
+            else commandInfo[command.data.name] = command.data.description;
+        })
+    }
+    else {
+        commandInfo[command.data.name] = command.data.description;
+    }
+    return commandInfo;
+}
 
 module.exports = {
     reply,
     selectMenuPaginator,
-    buttonPaginator
+    buttonPaginator,
+    commandName
 }
