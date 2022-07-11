@@ -41,6 +41,8 @@ function selectMenuPaginator(action, embeds, options = {}) {
         options.row.addComponents(options.comp);
     }
 
+    if (!options.id) options.id = options.row.customId;
+
     (async () => {
         let embed = options.index;
 
